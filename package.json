@@ -1,0 +1,25 @@
+{
+  "name": "moexpress",
+  "version": "0.0.1",
+  "description": "Restfull API Express with Mongodb",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git remote add origin https://github.com/yogga18/restapi_moexpress.git"
+  },
+  "keywords": [
+    "rest",
+    "express",
+    "mongodb"
+  ],
+  "author": "Yogga Aditya Candra",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.5"
+  }
+}
