@@ -17,7 +17,7 @@ db.mongoose
         useUnifiedTopology: true,
     })
     .then((res) => {
-        console.log('Database Connected...',res)
+        console.log('Database Connected...!!!!',res)
     }).catch((err) => {
         console.log('Cannot Connect to the Database',err)
         // jika error hentikan prosessnya
@@ -32,6 +32,9 @@ app.get('/', (req, res) => {
         message: "Success Conected"
     })
 })
+
+// memanggil route
+require('./app/routes/post.routes')(app)
 
 // 4 jalankan express dengan menetukan jalur PORT-nya
 const  PORT = 8000

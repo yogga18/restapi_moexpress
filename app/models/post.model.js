@@ -1,17 +1,17 @@
 // 9. membuat module export dengan parameter mongoose jadi ketika pemanggilan objek ini di haruskan untuk mengisi parameter
 module.exports = (mongoose) => {
     // Membuat Scema atau desain tabel
-    const schema = mongoose.schema(
+    const schema = mongoose.Schema(
         {
             title: String,
             body: String,
-            publishde : Boolean,
-        },{
+            published : Boolean,
+        }, {
             timestamps: true
         }
     )
     // Convert uinik key id menjadi JSon
-    schema.method("toJSON", function() {
+    schema.method("toJSON", function () {
         // merubah struktur __v, _id dan object lainnya ke dalam object
         const {__v, _id, ... object} = this.toObject()
         // Set unik key _id menjadi id
