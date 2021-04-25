@@ -9,12 +9,14 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true })) // membuat opsi ketika request tidak berbentuk JSon
 
-// 9 menyambungkan file express dengan file app.js dan akan di teruskan (connect ke database)
+// 9 menyambungkan (CONFIG) file express dengan file app.js dan akan di teruskan (connect ke database)
 const db = require('./app/models/')
 db.mongoose
     .connect(db.url, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
+        // ijinkan untuk mencari data dan mengubah data tersebut
+        useFindAndModify: true,
     })
     .then((res) => {
         console.log('Database Connected...!!!!',res)

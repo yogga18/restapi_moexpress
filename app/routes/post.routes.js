@@ -16,7 +16,13 @@ module.exports = (app) => {
 
     //15 Daftarkan methode untuk menampilkan dat by id
     router.get('/:id', posts.findOne)
-    
+
+    // 16 Daftarkan methode untuk update
+    router.put('/:id', posts.update)
+
+    // 17 Daftarkan methode untuk delete
+    router.delete('/:id', posts.delete)
+
     // Registrasi route ke dalam app.use
     // jadi nantinya end point posts adalaha http://localhost:8000/api/posts/
     app.use('/api/posts', router)

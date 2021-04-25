@@ -54,3 +54,58 @@ exports.findOne = (req, res) => {
     });
 }
 // Menampilkan 1 data berdasarkan id-nya END
+
+
+// PUT
+exports.update = (req, res) => {
+    const id = req.params.id
+
+    // cari data berdasarkan id lalu berikan data tersebut satu bundel body
+    Post.findByIdAndUpdate(id, req.body)
+    .then((result) => {
+        // Pemeriksaan apakah data yang di minta itu ada ?
+        // jika data tidak ada, maka kirimkan respon 404
+        if (!result) {
+            res.status(404).send({
+                message: "Post not Found"
+            })
+        }
+
+        // jika ada kirim ini
+        res.send({
+            message: "Post was Updated"
+        })
+    })
+    .catch((err) => {
+        res.status(409).send({
+            message: err.message || "failed to update data"
+        })
+    });
+}
+// PUT END
+
+// DELET
+exports.delete = (req, res) => {
+    const id = req.params.id
+
+    Post.findByIdAndRemove(id)
+    .then((result) => {
+        // Cek apakah data yang di cari user ada ?
+        // jika tidak ada beri response 404
+        if (!result) {
+            res.status(404).send({
+                message: "Post not Found"
+            })
+        }
+
+        // jika ada kirim ini
+        res.send({
+            message: "Data has been deleted successfully"
+        })
+    }).catch((err) => {
+        res.status(409).send({
+            message: err.message || "failed to deleted data"
+        })
+    });
+}
+//DELET END
