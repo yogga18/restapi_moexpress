@@ -11,7 +11,7 @@ mongoose.Promise = global.Promise // memanggil mongose menggunakan promise dan d
 const db = {}
 db.mongoose = mongoose 
 db.url = dbConfig.url // ini berisikan url yang database mongodb yg ada di file db.config.js
-db.posts = require('./post.model')(mongoose)
+db.posts = require('./post.model')(mongoose) // Memanggil db post dari file post.model
 
 // 8 Buat module export untuk db agar object bisa dugunakan di file yg lainnya
 module.exports = db

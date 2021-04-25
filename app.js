@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
     })
 })
 
-// memanggil route
+// 12. memanggil route agar nanti bisa di gunakan
 require('./app/routes/post.routes')(app)
 
 // 4 jalankan express dengan menetukan jalur PORT-nya
