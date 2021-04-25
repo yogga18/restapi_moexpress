@@ -19,6 +19,7 @@ exports.findAll = (req, res) => {
 
 // 13. Create
 exports.create = (req, res) => {
+    // Buat kerangka untuk user harus membuat data apa
     const post = new Post({
         title: req.body.title,
         body: req.body.body,
@@ -37,3 +38,19 @@ exports.create = (req, res) => {
     });
 }
 // Create End
+
+// Menampilkan 1 data berdasarkan id-nya
+exports.findOne = (req, res) => {
+    // params maksudnya ketika user memasukan id (data yg di cari)
+    // server bisa memberikan data yang di maksud berdasarkan prams yg di inputkan user
+    const id = req.params.id
+    Post.findById(id)
+    .then((result) => {
+        res.send(result)
+    }).catch((err) => {
+        res.status(409).send({
+            message: err.message || "failed to display data"
+        })
+    });
+}
+// Menampilkan 1 data berdasarkan id-nya END

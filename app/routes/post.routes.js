@@ -13,6 +13,9 @@ module.exports = (app) => {
 
     // 14. Daftarkan methode create di route
     router.post('/', posts.create)
+
+    //15 Daftarkan methode untuk menampilkan dat by id
+    router.get('/:id', posts.findOne)
     
     // Registrasi route ke dalam app.use
     // jadi nantinya end point posts adalaha http://localhost:8000/api/posts/
